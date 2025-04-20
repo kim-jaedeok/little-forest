@@ -1,25 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
 import { createLogger } from "redux-logger";
 
 import App from "./App/App";
 import reducer from "./reducers";
+import { thunk } from "redux-thunk";
 
 const middleware = [thunk];
 
-// Vite에서는 import.meta.env를 사용하여 환경 변수에 접근
 if (import.meta.env.MODE !== "production") {
   middleware.push(createLogger());
 }
 
 const store = createStore(reducer, applyMiddleware(...middleware));
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+root.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById("root"),
 );
