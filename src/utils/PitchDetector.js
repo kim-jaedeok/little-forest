@@ -46,9 +46,7 @@ class PitchDetector {
   getUserMedia(dictionary, callback) {
     try {
       navigator.getUserMedia =
-        navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia;
+        navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
       navigator.getUserMedia(dictionary, callback.bind(this), this.error);
     } catch (e) {
       queueMicrotask(() => {
@@ -105,7 +103,7 @@ class PitchDetector {
           optional: [],
         },
       },
-      this.gotStream
+      this.gotStream,
     );
   }
 

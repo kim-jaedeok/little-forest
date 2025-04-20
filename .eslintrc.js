@@ -1,9 +1,5 @@
 module.exports = {
-  extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-  ],
+  extends: ["eslint:recommended", "plugin:react/recommended", "plugin:react-hooks/recommended"],
   plugins: ["react", "react-hooks"],
   parserOptions: {
     ecmaVersion: 2021,

@@ -1,11 +1,7 @@
 import PitchPoint from "./PitchPoint";
 
 class Pad {
-  constructor(
-    pitchDetectorRef,
-    point,
-    images
-  ) {
+  constructor(pitchDetectorRef, point, images) {
     this.pitchDetector = pitchDetectorRef.current;
 
     this.pitchPoint = new PitchPoint(point, images.pitchPoints);
@@ -35,13 +31,7 @@ class Pad {
     this.pitchPoint.draw(ctx);
 
     ctx.save();
-    ctx.drawImage(
-      this.img,
-      this.posX,
-      this.posY - this.correction,
-      this.dWidth,
-      this.dHeight
-    );
+    ctx.drawImage(this.img, this.posX, this.posY - this.correction, this.dWidth, this.dHeight);
     ctx.restore();
 
     if (this.pitchPoint.checkCharacterReached(this.chracterX, this.chracterY)) {

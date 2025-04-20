@@ -18,9 +18,9 @@ const usePitchDetector = ({ isAudioUse, audioContextRef }) => {
       pitchDetectorRef.current = pitchDetector;
     }
 
-    return (() => {
+    return () => {
       pitchDetectorRef.current?.mediaStreamSource?.mediaStream.getTracks()[0].stop();
-    });
+    };
   }, [isAudioUse, audioContextRef]);
 
   return pitchDetectorRef;

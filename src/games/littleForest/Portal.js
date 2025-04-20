@@ -50,7 +50,7 @@ class Portal {
       this.dx,
       this.dy,
       this.dWidth,
-      this.dHeight
+      this.dHeight,
     );
     ctx.restore();
   }
@@ -59,12 +59,8 @@ class Portal {
     const characterX = characterController.characterCenterX;
     const characterY = characterController.posY - 20;
 
-    const checkX =
-      this.dx <= characterX &&
-      characterX <= this.dx + this.dWidth;
-    const checkY =
-      this.dy <= characterY &&
-      characterY <= this.dy + this.dHeight;
+    const checkX = this.dx <= characterX && characterX <= this.dx + this.dWidth;
+    const checkY = this.dy <= characterY && characterY <= this.dy + this.dHeight;
 
     if (checkX && checkY && !this.isPortalCall) {
       this.isPortalCall = true;

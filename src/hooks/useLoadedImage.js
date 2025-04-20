@@ -17,7 +17,7 @@ const useLoadedImage = (gameName) => {
         return state.imageReducer[gameName];
       }
     },
-    (prev, next) => _.cloneDeep(prev) === _.cloneDeep(next)
+    (prev, next) => _.cloneDeep(prev) === _.cloneDeep(next),
   );
 
   if (isLoaded) {

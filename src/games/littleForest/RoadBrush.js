@@ -21,13 +21,7 @@ class RoadBrush {
   draw(ctx) {
     ctx.beginPath();
     ctx.fillStyle = ROAD_COLOR;
-    ctx.arc(
-      this.posX,
-      this.posY,
-      this.radius,
-      0,
-      Math.PI * 2
-    );
+    ctx.arc(this.posX, this.posY, this.radius, 0, Math.PI * 2);
     ctx.fill();
   }
 

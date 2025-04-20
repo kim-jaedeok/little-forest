@@ -20,11 +20,7 @@ export const addEventHelper = (eventList, eventTarget, eventType, callback) => {
  */
 export const removeEventHelper = (eventList) => {
   for (const eventInfo of eventList) {
-    const {
-      eventTarget,
-      eventType,
-      callback,
-    } = eventInfo;
+    const { eventTarget, eventType, callback } = eventInfo;
 
     eventTarget.removeEventListener(eventType, callback);
   }

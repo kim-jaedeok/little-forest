@@ -9,21 +9,15 @@ class PitchPoint {
 
   draw(ctx) {
     ctx.save();
-    ctx.drawImage(
-      this.img,
-      this.posX,
-      this.posY + (this.range - 40),
-      40,
-      40
-    );
+    ctx.drawImage(this.img, this.posX, this.posY + (this.range - 40), 40, 40);
     ctx.restore();
   }
 
   checkCharacterReached(characterX, characterY) {
     return (
-      (this.posY + this.range) === characterY &&
+      this.posY + this.range === characterY &&
       this.posX <= characterX &&
-      characterX <= (this.posX + this.range)
+      characterX <= this.posX + this.range
     );
   }
 }

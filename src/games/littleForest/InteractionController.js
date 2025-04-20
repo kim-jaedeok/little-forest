@@ -5,12 +5,7 @@ import Portal from "./Portal";
 import Obstacle from "./Obstacle";
 
 class InteractionController {
-  constructor(
-    canvasHeight,
-    pitchDetectorRef,
-    interactionList,
-    images,
-  ) {
+  constructor(canvasHeight, pitchDetectorRef, interactionList, images) {
     this.canvasHeight = canvasHeight;
 
     this.pitchDetectorRef = pitchDetectorRef;
@@ -32,28 +27,19 @@ class InteractionController {
       switch (interaction.type) {
         case IMAGE_TYPE.ROAD:
           myInteractionList[IMAGE_TYPE.ROAD].push(
-            new Road(
-              this.canvasHeight,
-              this.pitchDetectorRef,
-              interaction,
-              this.images,
-            )
+            new Road(this.canvasHeight, this.pitchDetectorRef, interaction, this.images),
           );
 
           break;
         case IMAGE_TYPE.PAD:
           myInteractionList[IMAGE_TYPE.PAD].push(
-            new Pad(
-              this.pitchDetectorRef,
-              interaction,
-              this.images,
-            )
+            new Pad(this.pitchDetectorRef, interaction, this.images),
           );
 
           break;
         case IMAGE_TYPE.OBSTACLE:
           myInteractionList[IMAGE_TYPE.OBSTACLE].push(
-            new Obstacle(interaction, this.images.obstacles)
+            new Obstacle(interaction, this.images.obstacles),
           );
 
           break;

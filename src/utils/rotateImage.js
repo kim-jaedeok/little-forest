@@ -27,10 +27,10 @@ const rotateImage = (
   sy,
   sWidth,
   sHeight,
-  currentFrame
+  currentFrame,
 ) => {
   ctx.translate(dx + dWidth / 2, dy + dHeight / 2);
-  ctx.rotate(deg * Math.PI / 180);
+  ctx.rotate((deg * Math.PI) / 180);
 
   if (sx) {
     ctx.drawImage(
@@ -42,19 +42,13 @@ const rotateImage = (
       -(dWidth / 2),
       -(dHeight / 2),
       dWidth,
-      dHeight
+      dHeight,
     );
 
     return;
   }
 
-  ctx.drawImage(
-    img,
-    dx,
-    dy,
-    dWidth,
-    dHeight
-  );
+  ctx.drawImage(img, dx, dy, dWidth, dHeight);
 };
 
 export default rotateImage;

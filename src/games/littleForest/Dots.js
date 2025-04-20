@@ -23,10 +23,7 @@ class DotsController {
     ctx.lineWidth = 3;
 
     for (const eachRoad of roadDots) {
-      const {
-        posX,
-        dots
-      } = eachRoad;
+      const { posX, dots } = eachRoad;
 
       for (let i = 0; i < dots.length; i++) {
         if (staticDots[posX + i]) {
@@ -49,11 +46,7 @@ class DotsController {
 
   mergePadDots(staticDots, padDots) {
     for (const eachPad of padDots) {
-      const {
-        posX,
-        posY,
-        width,
-      } = eachPad;
+      const { posX, posY, width } = eachPad;
 
       for (let i = 0; i < width; i++) {
         if (staticDots[posX + i]) {

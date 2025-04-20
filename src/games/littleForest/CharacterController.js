@@ -31,18 +31,8 @@ class CharacterController {
       jumpHeight: 20,
     };
 
-    addEventHelper(
-      this.eventList,
-      window,
-      "keydown",
-      this.handleKeyEvent.bind(this)
-    );
-    addEventHelper(
-      this.eventList,
-      window,
-      "keyup",
-      this.handleKeyEvent.bind(this)
-    );
+    addEventHelper(this.eventList, window, "keydown", this.handleKeyEvent.bind(this));
+    addEventHelper(this.eventList, window, "keyup", this.handleKeyEvent.bind(this));
   }
 
   draw(ctx, dots, timeStamp) {
@@ -142,11 +132,7 @@ class CharacterController {
       this.posX += this.characterMove.speed;
     }
 
-    if (
-      this.characterMove.jump &&
-      !this.characterMove.isJumping &&
-      !this.isHit
-    ) {
+    if (this.characterMove.jump && !this.characterMove.isJumping && !this.isHit) {
       this.characterMove.isJumping = true;
       this.gravity -= this.characterMove.jumpHeight;
     }
