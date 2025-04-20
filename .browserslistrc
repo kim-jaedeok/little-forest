@@ -1,0 +1,11 @@
+# 프로덕션 환경
+[production]
+>0.2%
+not dead
+not op_mini all
+
+# 개발 환경
+[development]
+last 1 chrome version
+last 1 firefox version
+last 1 safari version
