@@ -22,6 +22,7 @@ module.exports = {
       version: "17.0.2",
     },
   },
+  ignorePatterns: ["dist/**/*", "node_modules/**/*"],
   rules: {
     "no-console": "warn",
     semi: [
