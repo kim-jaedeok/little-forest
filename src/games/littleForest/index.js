@@ -3,14 +3,10 @@ import DotsController from "./Dots";
 import InteractionController from "./InteractionController";
 
 class Game {
-  constructor(ref, {
-    pitchDetectorRef,
-    staticDots,
-    interactionList,
-    getNextMap,
-    images,
-    characterIndex,
-  }) {
+  constructor(
+    ref,
+    { pitchDetectorRef, staticDots, interactionList, getNextMap, images, characterIndex },
+  ) {
     this.canvas = ref.current;
     this.ctx = this.canvas.getContext("2d");
     this.width = this.canvas.width;
@@ -27,13 +23,13 @@ class Game {
       this.width,
       this.height,
       images,
-      characterIndex
+      characterIndex,
     );
     this.interactionController = new InteractionController(
       this.height,
       pitchDetectorRef,
       interactionList,
-      images
+      images,
     );
 
     window.requestAnimationFrame(this.animate.bind(this));
@@ -49,24 +45,24 @@ class Game {
     const roadDots = this.interactionController.getRoadDots(
       this.ctx,
       this.characterX,
-      this.characterY
+      this.characterY,
     );
-    const padDots = this.interactionController.getPadDots(
-      this.ctx,
-      this.characterController
-    );
+    const padDots = this.interactionController.getPadDots(this.ctx, this.characterController);
 
     this.dotsController.mergeRoadDots(this.ctx, dots, roadDots);
     this.dotsController.mergePadDots(dots, padDots);
 
-    this.interactionController.drawPortal(this.ctx, this.characterController, timeStamp, this.getNextMap);
+    this.interactionController.drawPortal(
+      this.ctx,
+      this.characterController,
+      timeStamp,
+      this.getNextMap,
+    );
     this.interactionController.drawObstacle(this.ctx, this.characterController, timeStamp);
 
     this.characterController.draw(this.ctx, dots, timeStamp);
 
-    this.animationFrameId = window.requestAnimationFrame(
-      this.animate.bind(this)
-    );
+    this.animationFrameId = window.requestAnimationFrame(this.animate.bind(this));
   }
 }
 

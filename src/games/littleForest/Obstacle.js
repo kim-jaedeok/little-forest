@@ -60,7 +60,7 @@ class Obstacle {
       this.posX,
       this.posY,
       this.dWidth,
-      this.dHeight
+      this.dHeight,
     );
     ctx.restore();
   }
@@ -80,14 +80,12 @@ class Obstacle {
     const characterBottomY = characterController.posY;
     const characterUpperY = characterBottomY - height;
 
-    const centerX = this.posX + (this.dWidth / 2);
-    const centerY = this.posY + (this.dHeight / 2);
+    const centerX = this.posX + this.dWidth / 2;
+    const centerY = this.posY + this.dHeight / 2;
 
-    const isXCollision =
-    (characterLeftX <= centerX && centerX <= characterRightX);
+    const isXCollision = characterLeftX <= centerX && centerX <= characterRightX;
 
-    const isYCollision =
-    (characterUpperY <= centerY && centerY <= characterBottomY);
+    const isYCollision = characterUpperY <= centerY && centerY <= characterBottomY;
 
     const speed = Math.floor(this.speed);
 

@@ -38,18 +38,20 @@ class PitchDetector {
   }
 
   error() {
-    console.error("Stream generation failed.");
+    queueMicrotask(() => {
+      throw new Error("Stream generation failed.");
+    });
   }
 
   getUserMedia(dictionary, callback) {
     try {
       navigator.getUserMedia =
-        navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia;
+        navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
       navigator.getUserMedia(dictionary, callback.bind(this), this.error);
     } catch (e) {
-      console.error("getUserMedia threw exception :" + e);
+      queueMicrotask(() => {
+        throw new Error("getUserMedia threw exception :" + e);
+      });
     }
   }
 
@@ -101,7 +103,7 @@ class PitchDetector {
           optional: [],
         },
       },
-      this.gotStream
+      this.gotStream,
     );
   }
 
@@ -182,7 +184,7 @@ class PitchDetector {
     return sampleRate / T0;
   }
 
-  updatePitch(time) {
+  updatePitch() {
     if (this.analyser) {
       this.analyser.getFloatTimeDomainData(this.buf);
     }

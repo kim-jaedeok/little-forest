@@ -26,7 +26,7 @@ const LittleForestContainer = () => {
   useImageLoad("littleForest");
   const { image, isLoaded } = useLoadedImage("littleForest");
   const pitchDetectorRef = usePitchDetector(
-    useAudio({ samplerate: 12000 }, { audio: true, video: false })
+    useAudio({ samplerate: 12000 }, { audio: true, video: false }),
   );
   const [currentMap, getNextMap] = useNextMap(mapList);
   const characterIndex = useRandomCharacter(image);
@@ -39,7 +39,7 @@ const LittleForestContainer = () => {
     TILE_SIZE,
     WIDTH,
     HEIGHT,
-    currentMap
+    currentMap,
   ).gameMap;
 
   const game = useCanvas(
@@ -52,7 +52,7 @@ const LittleForestContainer = () => {
       images: image,
       characterIndex,
     },
-    isLoaded
+    isLoaded,
   );
 
   const background = useCanvas(
@@ -61,7 +61,7 @@ const LittleForestContainer = () => {
       staticMap,
       images: image,
     },
-    isLoaded
+    isLoaded,
   );
 
   return (
@@ -72,13 +72,7 @@ const LittleForestContainer = () => {
 
           <Wrapper>
             {currentMap === 0 && <GameManual imgSrc={manualImage} />}
-            <Canvas
-              id="game-layer"
-              ref={game}
-              position="absolute"
-              width={WIDTH}
-              height={HEIGHT}
-            />
+            <Canvas id="game-layer" ref={game} position="absolute" width={WIDTH} height={HEIGHT} />
             <Canvas
               id="background-layer"
               ref={background}

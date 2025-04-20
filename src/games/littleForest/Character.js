@@ -65,7 +65,7 @@ class Character {
         0,
         this.sWidth,
         this.sHeight,
-        this.currentFrame
+        this.currentFrame,
       );
 
       this.ratio += 0.5;
@@ -91,7 +91,7 @@ class Character {
       dx,
       dy,
       dWidth,
-      dHeight
+      dHeight,
     );
     ctx.restore();
   }

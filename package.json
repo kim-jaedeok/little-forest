@@ -4,85 +4,34 @@
   "private": false,
   "dependencies": {
     "lodash": "^4.17.21",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.3",
-    "react-scripts": "^5.0.1",
-    "redux": "^4.0.5",
+    "prop-types": "^15.8.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "styled-components": "^5.2.3"
+    "redux-thunk": "^3.1.0",
+    "styled-components": "^6.1.17"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "serve": "react-scripts build && npx serve -s build",
-    "test": "react-scripts test"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "no-console": "warn",
-      "semi": [
-        "warn",
-        "always",
-        {
-          "omitLastInOneLineBlock": true
-        }
-      ],
-      "semi-style": [
-        "warn",
-        "last"
-      ],
-      "quotes": [
-        "warn",
-        "double"
-      ],
-      "indent": [
-        "warn",
-        2,
-        {
-          "SwitchCase": 1
-        }
-      ],
-      "no-multi-spaces": "warn",
-      "no-multiple-empty-lines": [
-        "warn",
-        {
-          "max": 1,
-          "maxEOF": 0
-        }
-      ],
-      "space-infix-ops": "warn",
-      "comma-spacing": "warn",
-      "block-spacing": "warn",
-      "semi-spacing": "warn",
-      "object-curly-spacing": [
-        "warn",
-        "always"
-      ],
-      "key-spacing": "warn",
-      "eol-last": "warn",
-      "no-undef": "warn"
-    }
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite build && vite preview",
+    "test": "vitest",
+    "lint": "eslint . --ext js,jsx --fix",
+    "format": "prettier --write \"**/*.{js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,json,css,md}\""
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
-  }
+    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
+    "@vitejs/plugin-react": "^4.4.1",
+    "eslint": "^9.25.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3",
+    "vite": "^6.3.2",
+    "vitest": "^3.1.1"
+  },
+  "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677"
 }

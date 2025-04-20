@@ -2,12 +2,7 @@ import PitchPoint from "./PitchPoint";
 import RoadBrush from "./RoadBrush";
 
 class Road {
-  constructor(
-    canvasHeight,
-    pitchDetectorRef,
-    point,
-    images
-  ) {
+  constructor(canvasHeight, pitchDetectorRef, point, images) {
     this.canvasHeight = canvasHeight;
     this.pitchDetector = pitchDetectorRef.current;
 

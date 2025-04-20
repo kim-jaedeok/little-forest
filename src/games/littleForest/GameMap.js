@@ -78,9 +78,7 @@ class GameMap {
   fillTilesHelper(type, index, x, y, width, height, length) {
     const posY = y * height * this.tileHeight;
     const myWidth = width * this.tileWidth;
-    const myLength = length
-      ? length
-      : (this.canvasWidth - x * myWidth) / myWidth;
+    const myLength = length ? length : (this.canvasWidth - x * myWidth) / myWidth;
 
     if (index === 1) {
       for (let i = 0; i < myLength * myWidth; i++) {

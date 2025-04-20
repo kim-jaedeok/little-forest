@@ -10,12 +10,13 @@ const imageReducer = (state = initialState, action) => {
   const copiedState = _.cloneDeep(state);
 
   switch (action.type) {
-    case ACTION_TYPES.STORE_IMAGE:
+    case ACTION_TYPES.STORE_IMAGE: {
       const { name, image } = action.payload;
       copiedState[name] = image;
       copiedState.isLoaded[name] = true;
 
       return copiedState;
+    }
     default:
       return copiedState;
   }

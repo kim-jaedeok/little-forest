@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import Button from "../shared/Button/Button";
 
@@ -60,6 +61,10 @@ const GameOption = ({ bgm }) => {
       </div>
     </GameOptionContainer>
   );
+};
+
+GameOption.propTypes = {
+  bgm: PropTypes.string,
 };
 
 export default GameOption;
